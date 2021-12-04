@@ -44,6 +44,14 @@ public class RoomManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
     }
 
+    public void OnEnterButtonClicked_SoundRoom()
+    {
+        mapType = MultiplayerVRConstant.MAP_TYPE_VALUE_SOUNDROOM;
+        ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable()
+            {{MultiplayerVRConstant.MAP_TYPE_KEY, mapType}};
+        PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
+    }
+
     #endregion
 
     #region Photon Callback
@@ -73,9 +81,13 @@ public class RoomManager : MonoBehaviourPunCallbacks
                 {
                     PhotonNetwork.LoadLevel("World_School");
                 }
-                else if ((string) mapType == MultiplayerVRConstant.MAP_TYPE_VALUE_OUTDOOR)
+                else if ((string)mapType == MultiplayerVRConstant.MAP_TYPE_VALUE_OUTDOOR)
                 {
                     PhotonNetwork.LoadLevel("World_Outdoor");
+                }
+                else if ((string)mapType == MultiplayerVRConstant.MAP_TYPE_VALUE_SOUNDROOM)
+                {
+                    PhotonNetwork.LoadLevel("SoundRoom");
                 }
             }
         }
