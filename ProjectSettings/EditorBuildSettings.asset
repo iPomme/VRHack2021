@@ -19,7 +19,10 @@ EditorBuildSettings:
     guid: 5041d70b592f91c4c8b6824c2ef6484f
   - enabled: 1
     path: Assets/IRONHEAD Games/Scenes/World_SoundRoom.unity
-    guid: 5c9e06a53f96045f88cae063a4175317
+    guid: 82db9cccd2214449d84e28c74b0f64bd
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b5fa6c9c5af464006b0ee944fda6199b, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 4ab8e87572ca5484ebf6b1cc00821ce3, type: 2}
