@@ -43,6 +43,7 @@ public class LoginManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.LogFormat("OnConnectedToServer Called. Connected to the Master server using nickname {0}!", PhotonNetwork.NickName);
+        PhotonNetwork.LoadLevel("HomeScene");
     }
     
     #endregion
