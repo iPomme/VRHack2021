@@ -27,5 +27,10 @@ public class RoomManagerEditorScript : Editor
         {
             roomManager.OnEnterButtonClicked_Outdoor();
         }
+
+        if (GUILayout.Button("Join Sound Room"))
+        {
+            roomManager.OnEnterButtonClicked_SoundRoom();
+        }
     }
 }

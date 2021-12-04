@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.120999664, g: 0.1621131, b: 0.1910228, a: 1}
+  m_IndirectSpecularColor: {r: 0.12099957, g: 0.16211298, b: 0.19102237, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3137,6 +3137,39 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3353666616870502134, guid: 64617370240e74217b51c8d1f20e964c, type: 3}
   m_PrefabInstance: {fileID: 1821890637}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1821890639 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1596377062, guid: 64617370240e74217b51c8d1f20e964c, type: 3}
+  m_PrefabInstance: {fileID: 1821890637}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1821890640 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3353666618156345472, guid: 64617370240e74217b51c8d1f20e964c, type: 3}
+  m_PrefabInstance: {fileID: 1821890637}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1821890641 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3353666617184783469, guid: 64617370240e74217b51c8d1f20e964c, type: 3}
+  m_PrefabInstance: {fileID: 1821890637}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1875503316
 GameObject:
   m_ObjectHideFlags: 0
@@ -3539,6 +3572,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a526920f90e90492f860c7b5c57de197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OccupencyRateText_School: {fileID: 1821890641}
+  OccupencyRateText_Outdoor: {fileID: 1821890640}
+  OccupencyRateText_Sound: {fileID: 1821890639}
 --- !u!1 &2017818362
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public TextMeshProUGUI OccupencyRateText_School;
     public TextMeshProUGUI OccupencyRateText_Outdoor;
+    public TextMeshProUGUI OccupencyRateText_Sound;
 
     #region Unity Callbacks
 
@@ -96,7 +97,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
                 }
                 else if ((string)mapType == MultiplayerVRConstant.MAP_TYPE_VALUE_SOUNDROOM)
                 {
-                    PhotonNetwork.LoadLevel("SoundRoom");
+                    PhotonNetwork.LoadLevel("World_SoundRoom");
                 }
             }
         }
