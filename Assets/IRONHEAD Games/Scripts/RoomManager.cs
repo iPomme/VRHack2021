@@ -1,35 +1,56 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using ExitGames.Client.Photon;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using Random = UnityEngine.Random;
+
+
 public class RoomManager : MonoBehaviourPunCallbacks
 {
-    // Start is called before the first frame update
-    void Start()
+    private string mapType;
+
+    #region Unity Callbacks
+
+    private void Start()
     {
-        
+        PhotonNetwork.AutomaticallySyncScene = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
+    #endregion
+
     #region UI Callbacks methods
 
     public void JoinRandomRoom()
     {
         PhotonNetwork.JoinRandomRoom();
     }
+
+    public void OnEnterButtonClicked_Outdoor()
+    {
+        mapType = MultiplayerVRConstant.MAP_TYPE_VALUE_OUTDOOR;
+        ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable()
+            {{MultiplayerVRConstant.MAP_TYPE_KEY, mapType}};
+        PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
+    }
+
+    public void OnEnterButtonClicked_School()
+    {
+        mapType = MultiplayerVRConstant.MAP_TYPE_VALUE_SCHOOL;
+        ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable()
+            {{MultiplayerVRConstant.MAP_TYPE_KEY, mapType}};
+        PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
+    }
+
     #endregion
 
     #region Photon Callback
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        Debug.LogFormat("{0}:{1}",returnCode, message);
+        Debug.LogFormat("{0}:{1}", returnCode, message);
         CreateAndJoinRoom();
     }
 
@@ -40,17 +61,34 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        Debug.LogFormat("The local Player: {0} joined to {1}, Player counts is {2}", PhotonNetwork.NickName, PhotonNetwork.CurrentRoom.Name, PhotonNetwork.CurrentRoom.PlayerCount);
-        
+        Debug.LogFormat("The local Player: {0} joined to {1}, Player counts is {2}", PhotonNetwork.NickName,
+            PhotonNetwork.CurrentRoom.Name, PhotonNetwork.CurrentRoom.PlayerCount);
+        if (PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey(MultiplayerVRConstant.MAP_TYPE_KEY))
+        {
+            object mapType;
+            if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue(MultiplayerVRConstant.MAP_TYPE_KEY, out mapType))
+            {
+                Debug.LogFormat("Joined the room with the map: {0}", (string) mapType);
+                if ((string) mapType == MultiplayerVRConstant.MAP_TYPE_VALUE_SCHOOL)
+                {
+                    PhotonNetwork.LoadLevel("World_School");
+                }
+                else if ((string) mapType == MultiplayerVRConstant.MAP_TYPE_VALUE_OUTDOOR)
+                {
+                    PhotonNetwork.LoadLevel("World_Outdoor");
+                }
+            }
+        }
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        Debug.LogFormat("The Player: {0} joined to {1}, Player counts is {2}", newPlayer.NickName, PhotonNetwork.CurrentRoom.Name, PhotonNetwork.CurrentRoom.PlayerCount);
+        Debug.LogFormat("The Player: {0} joined to {1}, Player counts is {2}", newPlayer.NickName,
+            PhotonNetwork.CurrentRoom.Name, PhotonNetwork.CurrentRoom.PlayerCount);
     }
 
     #endregion
-    
+
     #region Private Methods
 
     private void CreateAndJoinRoom()
@@ -59,7 +97,17 @@ public class RoomManager : MonoBehaviourPunCallbacks
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 20;
 
+        // we have 2 different maps
+        // 1. outdoor
+        // 2. school
+        string[] roomPropsInLobby = {MultiplayerVRConstant.MAP_TYPE_KEY};
+        ExitGames.Client.Photon.Hashtable customRoomProperties = new ExitGames.Client.Photon.Hashtable()
+            {{MultiplayerVRConstant.MAP_TYPE_KEY, mapType}};
+        roomOptions.CustomRoomPropertiesForLobby = roomPropsInLobby;
+        roomOptions.CustomRoomProperties = customRoomProperties;
+
         PhotonNetwork.CreateRoom(randomRoomName, roomOptions);
     }
+
     #endregion
 }
