@@ -19,29 +19,36 @@ public class SoundPointManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //List<Transform> allSoundList = allSoundEmitters.GetComponents<Transform>().ToList();
-        //List<Transform> randomEmitter = GetRandomElements(allSoundList, allSoundEmitters.childCount);
-        //for (int i = 0; i < randomEmitter.Count; i = +2)
-        //{
-        //    randomEmitter[i]
-        //}
-        foreach (Transform soundEmitter in allSoundEmitters)
+        int halfOfEmmiter = allSoundEmitters.childCount / 2;
+        List<Transform> allSoundList = allSoundEmitters.GetComponentsInChildren<Transform>().ToList();
+        allSoundList.RemoveAt(0);
+        List<Transform> randomEmitter = GetRandomElements(allSoundList, allSoundEmitters.childCount);
+        List<AudioClip> audioClipList = audioClips.ToList();
+        List<AudioClip> randomSound = GetRandomElements(audioClipList, halfOfEmmiter);
+        for (int i = 0; i < halfOfEmmiter ; i ++)
         {
-            Debug.Log("ffff-" + soundEmitter.gameObject.name);
-            AudioClip newRandomClip = getRandomAudioClip();
+            AudioClip newRandomClip = audioClipList[i];
 
             GameObject newSoundPoint = Instantiate(soundPointPrefab);
 
-            newSoundPoint.transform.position = soundEmitter.position;
+            Transform soundEmitter1 = randomEmitter[i*2];
+            newSoundPoint.transform.position = soundEmitter1.position;
             newSoundPoint.GetComponent<AudioSource>().clip = newRandomClip;
-            newSoundPoint.transform.SetParent(soundEmitter);
-            newSoundPoint.name = "SoundPoint_" + newRandomClip.name;
+            newSoundPoint.transform.SetParent(soundEmitter1);
+            newSoundPoint.name = "SoundPoint1_" + newRandomClip.name;
             newSoundPoint.GetComponent<AudioSource>().Play();
-
-            soundEmitter.GetComponent<MeshRenderer>().enabled = false;
+            soundEmitter1.GetComponent<MeshRenderer>().enabled = false;
+            
+            GameObject newSoundPoint1 = Instantiate(soundPointPrefab);
+            Transform soundEmitter2 = randomEmitter[(i*2)+1];
+            newSoundPoint1.transform.position = soundEmitter2.position;
+            newSoundPoint1.GetComponent<AudioSource>().clip = newRandomClip;
+            newSoundPoint1.transform.SetParent(soundEmitter2);
+            newSoundPoint1.name = "SoundPoint2_" + newRandomClip.name;
+            newSoundPoint1.GetComponent<AudioSource>().Play();
+            soundEmitter1.GetComponent<MeshRenderer>().enabled = false;
+            
         }
-
-
     }
 
     // Update is called once per frame
