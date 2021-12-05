@@ -7,6 +7,7 @@ public class LocalPlayerUIManager : MonoBehaviour
 {
     [SerializeField] private GameObject GoHome_Button;
 
+    public GameObject screen;
     // Start is called before the first frame update
     void Start()
     {
