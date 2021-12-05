@@ -106,6 +106,8 @@ GameObject:
   - component: {fileID: 3897947948083160249}
   - component: {fileID: 3897947948083160247}
   - component: {fileID: 3897947948083160246}
+  - component: {fileID: 3887528770745259440}
+  - component: {fileID: 6524558111743903723}
   m_Layer: 0
   m_Name: SoundPoint
   m_TagString: Untagged
@@ -257,6 +259,35 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &3887528770745259440
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3897947948083160244}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13194337, y: 0.15937513, z: 0.21635582}
+  m_Center: {x: -0.011881307, y: -0.0027448833, z: 0.0048878416}
+--- !u!54 &6524558111743903723
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3897947948083160244}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3897947948566263587
 GameObject:
   m_ObjectHideFlags: 0
