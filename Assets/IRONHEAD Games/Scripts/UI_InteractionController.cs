@@ -17,7 +17,9 @@ public class UI_InteractionController : MonoBehaviour
     [SerializeField]
     InputActionReference inputActionReference_UISwitcher;
 
-    bool isUICanvasActive = false;
+    [SerializeField] private bool showUIbyDefault = true;
+    
+    bool isUICanvasActive = true;
 
     [SerializeField]
     GameObject UIGameobject;
@@ -35,16 +37,17 @@ public class UI_InteractionController : MonoBehaviour
 
     private void Start()
     {
-        //Deactivating UI Canvas Gameobject by default
+        isUICanvasActive = showUIbyDefault;
+        //Activating UI Canvas Gameobject by default
         if (UIGameobject !=null)
         {
-            UIGameobject.SetActive(false);
+            UIGameobject.SetActive(showUIbyDefault);
 
         }
 
-        //Deactivating UI Controller by default
-        UIController.GetComponent<XRRayInteractor>().enabled = false;
-        UIController.GetComponent<XRInteractorLineVisual>().enabled = false;
+        //Activating UI Controller by default
+        UIController.GetComponent<XRRayInteractor>().enabled = showUIbyDefault;
+        UIController.GetComponent<XRInteractorLineVisual>().enabled = showUIbyDefault;
     }
 
     /// <summary>

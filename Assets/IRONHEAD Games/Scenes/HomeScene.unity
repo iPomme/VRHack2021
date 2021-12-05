@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12099957, g: 0.16211298, b: 0.19102237, a: 1}
+  m_IndirectSpecularColor: {r: 0.12099992, g: 0.16211352, b: 0.19102319, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3697,6 +3697,10 @@ PrefabInstance:
       propertyPath: UIGameobject
       value: 
       objectReference: {fileID: 756550314}
+    - target: {fileID: 1953128110364120073, guid: ac8d013b40d4c49ec8390c122892e80e, type: 3}
+      propertyPath: showUIbyDefault
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1953128110364120073, guid: ac8d013b40d4c49ec8390c122892e80e, type: 3}
       propertyPath: UICanvasGameobject
       value: 
