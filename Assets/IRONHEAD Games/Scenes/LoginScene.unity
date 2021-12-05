@@ -242,6 +242,26 @@ PrefabInstance:
       propertyPath: m_OnSelect.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: VRKeyboardManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 4259889452654169634, guid: a8540a53423fe4c8bbd0d9a0aa450fac, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 19.589993
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259889452654169634, guid: a8540a53423fe4c8bbd0d9a0aa450fac, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 9.795004
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259889452654169637, guid: a8540a53423fe4c8bbd0d9a0aa450fac, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6698113
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259889452654169637, guid: a8540a53423fe4c8bbd0d9a0aa450fac, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4795304
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259889452654169637, guid: a8540a53423fe4c8bbd0d9a0aa450fac, type: 3}
+      propertyPath: m_Color.r
+      value: 0.38861695
+      objectReference: {fileID: 0}
     - target: {fileID: 4259889452726300413, guid: a8540a53423fe4c8bbd0d9a0aa450fac, type: 3}
       propertyPath: m_textAlignment
       value: 65535
@@ -292,6 +312,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4259889453178614642, guid: a8540a53423fe4c8bbd0d9a0aa450fac, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259889453322337186, guid: a8540a53423fe4c8bbd0d9a0aa450fac, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259889453322337186, guid: a8540a53423fe4c8bbd0d9a0aa450fac, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259889453322337186, guid: a8540a53423fe4c8bbd0d9a0aa450fac, type: 3}
+      propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4259889453322337187, guid: a8540a53423fe4c8bbd0d9a0aa450fac, type: 3}
